@@ -1,0 +1,58 @@
+rules_version = '2';
+
+service firebase.storage {
+  match /b/{bucket}/o {
+    function isAdmin() {
+      return request.auth != null
+        && request.auth.token.admin == true;
+    }
+
+    function isAllowedImage() {
+      return request.resource != null
+        && request.resource.size < 5 * 1024 * 1024
+        && request.resource.contentType.matches('image/(jpeg|png|webp|gif|svg\\+xml)');
+    }
+
+    match /hero/{allPaths=**} {
+      allow read: if true;
+      allow create, update: if isAdmin() && isAllowedImage();
+      allow delete: if isAdmin();
+    }
+
+    match /about/{allPaths=**} {
+      allow read: if true;
+      allow create, update: if isAdmin() && isAllowedImage();
+      allow delete: if isAdmin();
+    }
+
+    match /services/{allPaths=**} {
+      allow read: if true;
+      allow create, update: if isAdmin() && isAllowedImage();
+      allow delete: if isAdmin();
+    }
+
+    match /gallery/{allPaths=**} {
+      allow read: if true;
+      allow create, update: if isAdmin() && isAllowedImage();
+      allow delete: if isAdmin();
+    }
+
+    match /offers/{allPaths=**} {
+      allow read: if true;
+      allow create, update: if isAdmin() && isAllowedImage();
+      allow delete: if isAdmin();
+    }
+
+    match /testimonials/{allPaths=**} {
+      allow read: if true;
+      allow create, update: if isAdmin() && isAllowedImage();
+      allow delete: if isAdmin();
+    }
+
+    match /site-images/{allPaths=**} {
+      allow read: if true;
+      allow create, update: if isAdmin() && isAllowedImage();
+      allow delete: if isAdmin();
+    }
+  }
+}

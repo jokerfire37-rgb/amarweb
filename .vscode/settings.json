@@ -1,0 +1,4 @@
+{
+    "chat.implicitContext.includeActiveEditor": true,
+    "chat.disableAIFeatures": false
+}

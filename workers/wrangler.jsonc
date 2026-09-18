@@ -1,0 +1,15 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "amar-printers-cloudinary-sign",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-08-27",
+  "vars": {
+    "FIREBASE_PROJECT_ID": "amar-printers",
+    "CLOUDINARY_CLOUD_NAME": "cqxdgnbq",
+    "CLOUDINARY_API_KEY": "546343675531415",
+    "ALLOWED_ORIGIN": "http://localhost:5173"
+  },
+  "secrets": {
+    "required": ["CLOUDINARY_API_SECRET"]
+  }
+}
